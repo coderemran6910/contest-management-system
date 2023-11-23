@@ -26,7 +26,7 @@ const MainLayout = ({ children }) => {
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col ">
         {/* Navbar */}
-        <div className="w-full navbar bg-[#DCFCE7]">
+        <div className="w-full navbar bg-black text-white ">
           <div className="w-full max-w-7xl mx-auto">
             <div className="flex-none lg:hidden">
               <label
@@ -53,10 +53,10 @@ const MainLayout = ({ children }) => {
             {/* Logo */}
             <div className="flex-1 px-2 text-right lg:text-left text-3xl font-extrabold ">
               
-              <span className="bg-[#39DB4A] text-white p-2 rounded-xl text-2xl">
-                Emran's
+              <span className="bg-[#993922] text-white px-5 rounded-sm text-3xl">
+                C
               </span>
-              Food
+              <span className=" border-b-2 border-[#993922]">ontest</span>
             </div>
 
             <div className="flex-none hidden lg:block">

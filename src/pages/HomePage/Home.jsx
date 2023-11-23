@@ -1,11 +1,11 @@
-import Login from "../../components/loginForm/Login";
 import Banner from "./Banner";
+import PopularSection from "./PopularSection";
 
 const Home = () => {
     return (
         <div>
            <Banner></Banner>
-           <Login></Login>
+           <PopularSection></PopularSection>
         </div>
     );
 };

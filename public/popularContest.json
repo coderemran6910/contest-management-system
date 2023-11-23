@@ -1,0 +1,88 @@
+
+[
+    {
+      "title": "Design Marvels - Unleash Your Creative Vision!",
+      "category": "Design",
+      "participantCount": "2000+ participants",
+      "deadline": "December 15th, 2023",
+      "duration": "3 Weeks Left",
+      "description": "Show your design prowess and craft wonders that inspire. Let your imagination run wild!",
+      "engagementMetrics": {
+        "likes": 500,
+        "comments": 150,
+        "shares": 100
+      },
+      "prizes": "Grand Prize of $1000 and Featured Spotlight",
+      "recognition": "Winners featured in our Hall of Fame!",
+      "actionButton": "Join Contest",
+      "image" : "https://i.ibb.co/Ch95JXJ/1.jpg"
+    },
+    {
+      "title": "Coding Titans - Conquer the Challenges!",
+      "category": "Coding",
+      "participantCount": "1500+ participants",
+      "deadline": "November 30th, 2023",
+      "duration": "2 Weeks Left",
+      "description": "Flex your coding muscles and tackle challenges that test your skills!",
+      "engagementMetrics": {
+        "likes": 300,
+        "comments": 100,
+        "shares": 50
+      },
+      "prizes": "Top Coder Award and Exclusive Tech Gear",
+      "recognition": "Get featured in our Tech Genius Showcase!",
+      "actionButton": "Join Contest",
+      "image" : "https://i.ibb.co/58m6gqX/code.jpg"
+    },
+    {
+      "title": "Writing Odyssey - Pen Your Masterpiece!",
+      "category": "Writing",
+      "participantCount": "1200+ participants",
+      "deadline": "December 10th, 2023",
+      "duration": "2.5 Weeks Left",
+      "description": "Compose compelling stories or poetry that captivate hearts and minds!",
+      "engagementMetrics": {
+        "likes": 400,
+        "comments": 80,
+        "shares": 70
+      },
+      "prizes": "Best Storyteller Award and Exclusive Writing Workshop",
+      "recognition": "Winners spotlighted in our Literary Excellence Series!",
+      "actionButton": "Join Contest",
+      "image" : "https://i.ibb.co/BwzMqsj/writing.jpg"
+    },
+    {
+      "title": "Artistic Visions - Paint Your Imagination!",
+      "category": "Art",
+      "participantCount": "800+ participants",
+      "deadline": "December 5th, 2023",
+      "duration": "2 Weeks Left",
+      "description": "Express your inner artist and create stunning visual masterpieces!",
+      "engagementMetrics": {
+        "likes": 250,
+        "comments": 70,
+        "shares": 30
+      },
+      "prizes": "Art Maestro Award and Exclusive Art Gallery Feature",
+      "recognition": "Artworks showcased in our Artistic Brilliance Exhibition!",
+      "actionButton": "Join Contest",
+      "image" : "https://i.ibb.co/Ch95JXJ/1.jpg"
+    },
+    {
+      "title": "Innovation Challenge - Redefine the Future!",
+      "category": "Innovation",
+      "participantCount": "3000+ participants",
+      "deadline": "December 20th, 2023",
+      "duration": "4 Weeks Left",
+      "description": "Propose groundbreaking ideas that revolutionize industries and society!",
+      "engagementMetrics": {
+        "likes": 800,
+        "comments": 200,
+        "shares": 120
+      },
+      "prizes": "Innovation Pioneer Award and Funding Opportunities",
+      "recognition": "Winners showcased in our Innovation Summit!",
+      "actionButton": "Join Contest",
+      "image" : "https://i.ibb.co/hgyZtmW/innovation.jpg"
+    }
+  ]

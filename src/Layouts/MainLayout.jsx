@@ -7,15 +7,16 @@ const MainLayout = ({ children }) => {
 
   const menu = (
     <>
-      <NavLink className="btn btn-ghost  " to={"/"}>
+      <NavLink className="btn btn-ghost text-xl " to={"/"}>
         Home
       </NavLink>
-      <NavLink className="btn btn-ghost  " to={"/allfoods"}>
-        All Foods
+      <NavLink className="btn btn-ghost text-xl " to={"/"}>
+        Login
       </NavLink>
-      <NavLink className="btn btn-ghost  " to={"/blog"}>
-        Blog
+      <NavLink className="btn btn-ghost text-xl  " to={"/"}>
+        Profile
       </NavLink>
+      
     </>
   );
 
@@ -60,7 +61,7 @@ const MainLayout = ({ children }) => {
             </div>
 
             <div className="flex-none hidden lg:block">
-              <div className="menu menu-horizontal flex gap-10 justify-end items-center">
+              <div className="menu menu-horizontal flex gap-10 justify-end items-center ">
                 {menu}
               </div>
 

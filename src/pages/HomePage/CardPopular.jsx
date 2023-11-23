@@ -96,7 +96,7 @@ const TiltCard = ({popular}) => {
 <h3 className="text-3xl text-white font-bold ">{title}</h3>
 <p className="text-lg py-2 text-slate-300"> {description} </p>
 <div className="flex justify-between items-center">
-<strong className="text-lg text-slate-50">Attempted count:  {participantCount}</strong>
+<strong className="text-lg  text-slate-400">Attempted count:  {participantCount}</strong>
 <StyledButton  text={"View More"}></StyledButton>
 </div>
 </div>

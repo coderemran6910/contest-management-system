@@ -19,7 +19,7 @@ const WinnerSection = () => {
     <section style={{ backgroundImage: `url(${bg})` }} className=" from-purple-400 via-pink-500 to-red-500 py-16 gap-10 text-white bg-cover bg-center ">
       
      <div className="max-w-7xl mx-auto flex justify-center items-center">
-     <div className="container mx-auto px-4 text-black">
+     <div className="container mx-auto px-4 text-black flex-1">
         {/* Winner Spotlight */}
         <div className="mb-8">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Contest Winner</h2>
@@ -46,7 +46,7 @@ const WinnerSection = () => {
           <StyledButton  text={"Join Contest"}></StyledButton>
         </div>
       </div>
-      <div>
+      <div className="flex-1">
         <img src="https://i.ibb.co/fp5h1vj/winner.jpg" alt={winner.name} className="w-full h-auto object-cover rounded-2xl" />
       </div>
      </div>

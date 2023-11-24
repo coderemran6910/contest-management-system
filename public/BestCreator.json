@@ -1,0 +1,23 @@
+ [
+    {
+      "contest_id": 1,
+      "name": "Elena Rodriguez",
+      "image": "https://cdn.pixabay.com/photo/2016/11/29/01/34/man-1866574_640.jpg",
+      "contestName": "Artistic Visions - Paint Your Imagination!",
+      "contestDescription": "Elena's contest invites artists to express their inner visions through stunning visual masterpieces. Her passion for art and creativity shines through this captivating contest."
+    },
+    {
+        "contest_id": 2,
+      "name": "Alex Thompson",
+      "image": "https://cdn.pixabay.com/photo/2015/08/05/04/25/people-875617_640.jpg",
+      "contestName": "Coding Challenge - Unleash the Innovation!",
+      "contestDescription": "Alex's coding challenge dares developers to push boundaries and innovate. With intriguing problems and inventive solutions, this contest fuels the spirit of innovation."
+    },
+    {
+        "contest_id": 3,
+      "name": "Sophie Patel",
+      "image": "https://cdn.pixabay.com/photo/2017/03/27/13/28/man-2178721_640.jpg",
+      "contestName": "Design Marvels - Redefining Creativity!",
+      "contestDescription": "Sophie's design contest is a platform for creative minds to redefine what's possible. Her dedication to fostering creativity reflects in the breathtaking designs showcased in this contest."
+    }
+  ]

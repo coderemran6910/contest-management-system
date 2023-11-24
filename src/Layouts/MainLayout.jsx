@@ -76,9 +76,9 @@ const MainLayout = ({ children }) => {
         <label
           htmlFor="my-drawer-3"
           aria-label="close sidebar"
-          className="drawer-overlay"
+          className="drawer-overlay "
         ></label>
-        <div className="menu p-4 w-60 md:w-80  min-h-full bg-base-200 flex flex-col items-center gap-5 ">
+        <div className="menu p-4 w-52 md:w-80  min-h-full  flex flex-col items-center gap-5 bg-[#993922]  text-white  font-bold text-2xl">
           {/* Sidebar content here */}
           {menu}
         </div>

@@ -3,23 +3,29 @@ import styled from 'styled-components';
 import Button from './Button';
 import Icon from './Icon';
 import Input from './Inputs';
-import {FaFacebookF, FaInstagram, FaTwitter} from 'react-icons/fa';
+import {FaFacebookF, FaGoogle, FaInstagram, FaTwitter} from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
-const Login = () => {
+const Register = () => {
     return (
+     <>
       <div className='flex justify-center items-center'>
-          <MainContainer>
-        <WelcomeText>Welcome</WelcomeText>
+          <MainContainer className='mt-20'>
+        <WelcomeText className='text-[#993922] text-3xl font-extrabold'>Register </WelcomeText>
+   
         <InputContainer>
           <Input type="text" placeholder="Email" />
           <Input type="password" placeholder="Password" />
         </InputContainer>
         <ButtonContainer>
-          <Button content="Sign Up" />
+          <Button content="Register" />
         </ButtonContainer>
-        <LoginWith>OR LOGIN WITH</LoginWith>
+        <LoginWith>OR Register WITH</LoginWith>
         <HorizontalRule />
         <IconsContainer>
+          <Icon color= "#F4B422">
+            <FaGoogle />
+          </Icon>
           <Icon color= "blue">
             <FaFacebookF />
           </Icon>
@@ -30,9 +36,14 @@ const Login = () => {
             <FaTwitter />
           </Icon>
         </IconsContainer>
-        <ForgotPassword>Forgot Password ?</ForgotPassword>
+        <ForgotPassword className='text-black font-bold'>Do not have an account?<Link className='text-blue-500  font-bold text-lg' to={"/login"}>Login</Link></ForgotPassword>
+
+       
       </MainContainer>
+     
       </div>
+       <div className='flex justify-center items-end'> <Link className='text-white bg-blue-500 text-xl font-bold btn btn-xl mt-20' to={'/'}>  Register later </Link></div>
+     </>
     );
 
    
@@ -136,4 +147,4 @@ const ForgotPassword = styled.h4`
   cursor: pointer;
 `;
 
-export default Login;
+export default Register;

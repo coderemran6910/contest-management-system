@@ -16,7 +16,7 @@ const WinnerSection = () => {
 
 
   return (
-    <section style={{ backgroundImage: `url(${bg})` }} className=" from-purple-400 via-pink-500 to-red-500 py-16 gap-10 text-white bg-cover bg-center ">
+    <section style={{ backgroundImage: `url(${bg})` }} className=" from-purple-400 via-pink-500 to-red-500  gap-10 text-white bg-cover bg-center h-screen flex justify-center items-center">
       
      <div className="max-w-7xl mx-auto flex justify-center items-center">
      <div className="container mx-auto px-4 text-black flex-1">
@@ -29,6 +29,7 @@ const WinnerSection = () => {
             <div>
               <h3 className="text-lg md:text-xl font-semibold">{winner.name}</h3>
               <p className="text-sm md:text-base">{winner.description}</p>
+              
             </div>
           </div>
         </div>

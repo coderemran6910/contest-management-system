@@ -11,6 +11,7 @@ import "swiper/css/pagination";
 
 // import required modules
 import { EffectCoverflow, Pagination } from "swiper/modules";
+import StyledButton from "../../../components/shared/StyledButton";
 
 export default function SliderBestCreator({ bestCreator }) {
   // console.log(bestCreator);
@@ -47,7 +48,8 @@ export default function SliderBestCreator({ bestCreator }) {
             <div className="flex-1 px-20">
               <h2 className="text-3xl md:text-4xl text-black font-bold uppercase mb-10">{name}</h2>
               <p className="text-lg  text-slate-800">{contestDescription}</p>
-              <p>contest name: {contestName}</p>
+              <p className="mb-10">contest name: {contestName}</p>
+              <StyledButton text={"View Profile"}></StyledButton>
             </div>
              </div>
             </SwiperSlide>

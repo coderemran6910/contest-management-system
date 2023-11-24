@@ -10,6 +10,9 @@ const MainLayout = ({ children }) => {
       <NavLink className="btn btn-ghost text-xl " to={"/"}>
         Home
       </NavLink>
+      <NavLink className="btn btn-ghost text-xl " to={"/allcontest"}>
+        All Contest 
+      </NavLink>
       <NavLink className="btn btn-ghost text-xl " to={"/"}>
         Login
       </NavLink>

@@ -1,52 +1,199 @@
-
-import styled from 'styled-components';
-import Button from './Button';
-import Icon from './Icon';
-import Input from './Inputs';
-import {FaFacebookF, FaGoogle, FaInstagram, FaTwitter} from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import styled from "styled-components";
+import Button from "./Button";
+import Icon from "./Icon";
+import { FaFacebookF, FaGoogle, FaInstagram, FaTwitter } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
+import useAuth from "../../hooks/useAuth";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const Register = () => {
-    return (
-     <>
-      <div className='flex justify-center items-center'>
-          <MainContainer className='mt-20'>
-        <WelcomeText className='text-[#993922] text-3xl font-extrabold'>Register </WelcomeText>
-   
-        <InputContainer>
-          <Input type="text" placeholder="Email" />
-          <Input type="password" placeholder="Password" />
-        </InputContainer>
-        <ButtonContainer>
-          <Button content="Register" />
-        </ButtonContainer>
-        <LoginWith>OR Register WITH</LoginWith>
-        <HorizontalRule />
-        <IconsContainer>
-          <Icon color= "#F4B422">
-            <FaGoogle />
-          </Icon>
-          <Icon color= "blue">
-            <FaFacebookF />
-          </Icon>
-          <Icon color="red">
-            <FaInstagram />
-          </Icon>
-          <Icon color="green">
-            <FaTwitter />
-          </Icon>
-        </IconsContainer>
-        <ForgotPassword className='text-black font-bold'>Do not have an account?<Link className='text-blue-500  font-bold text-lg' to={"/login"}>Login</Link></ForgotPassword>
+  const {googleSignIn} = useAuth()
 
-       
-      </MainContainer>
-     
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+  const navigate = useNavigate();
+  const { createUser } = useContext(AuthContext);
+  const onSubmit = (data) => {
+    createUser(data.email, data.password).then((result) => {
+      Swal.fire({
+        title: "Good job!",
+        text: "You clicked the button!",
+        icon: "success"
+      });
+
+      toast.success('User created successfully')
+      console.log(result.user);
+
+      // const loggedUser = result.user;+
+      // console.log(loggedUser);
+      // updateUserProfile(data.name, data.photoURL)
+      //     .then(() => {
+      // create user entry in the database
+      // const userInfo = {
+      //     name: data.name,
+      //     email: data.email
+      // }
+      //     axiosPublic.post('/users', userInfo)
+      //         .then(res => {
+      //             if (res.data.insertedId) {
+      //                 console.log('user added to the database')
+      //                 reset();
+      //                 Swal.fire({
+      //                     position: 'top-end',
+      //                     icon: 'success',
+      //                     title: 'User created successfully.',
+      //                     showConfirmButton: false,
+      //                     timer: 1500
+      //                 });
+      //                 navigate('/');
+      //             }
+      //         })
+
+      // })
+      // .catch(error => console.log(error))
+    });
+  };
+
+  // Google Login 
+  const handleGoogleSignIn = () =>{
+    googleSignIn()
+    .then(result =>{
+        console.log(result.user);
+        toast.success('User created successfully')
+        // const userInfo = {
+        //     email: result.user?.email,
+        //     name: result.user?.displayName
+        // }
+
+        // axiosPublic.post('/users', userInfo)
+        // .then(res =>{
+        //     console.log(res.data);
+        //     navigate('/');
+        // })
+    })
+}
+
+  return (
+    <>
+      <div className="flex justify-center items-center ">
+        <MainContainer className="mt-20">
+          <WelcomeText className="text-[#993922] text-3xl font-extrabold">
+            Register{" "}
+          </WelcomeText>
+
+          <InputContainer>
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className=" w-full  space-y-5"
+            >
+              {/* Inputs  */}
+
+              <input
+                type="text"
+                placeholder="User name"
+                {...register("name", { required: true })}
+                className="w-full p-2 rounded-full  bg-slate-100 text-black  shadow-xl  border-4 border-[#993922] "
+              />
+               {errors.name && <span className="text-red-600">Name is required</span>}
+
+              <input
+                type="text"
+                placeholder="Photo URL"
+                {...register("photo", { required: true })}
+                className="w-full p-2 rounded-full  bg-slate-100 text-black  shadow-xl  border-4 border-[#993922] "
+              />
+               {errors.photo && <span className="text-red-600">Photo URL is required</span>}
+              <input
+                type="email"
+                placeholder="Email"
+                {...register("email", { required: true })}
+                className="w-full p-2 rounded-full  bg-slate-100 text-black  shadow-xl  border-4 border-[#993922] "
+              />
+               {errors.email && <span className="text-red-600">Email is required</span>}
+
+              <input
+                type="password"
+                placeholder="Password"
+                className="w-full p-2 rounded-full  bg-slate-100 text-black  shadow-xl  border-4 border-[#993922] "
+                {...register("password", {
+                  required: true,
+                  minLength: 6,
+                  maxLength: 20,
+                  pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
+                })}
+              />
+              {errors.password?.type === "required" && (
+                <p className="text-red-600">Password is required</p>
+              )}
+              {errors.password?.type === "minLength" && (
+                <p className="text-red-600">Password must be 6 characters</p>
+              )}
+              {errors.password?.type === "maxLength" && (
+                <p className="text-red-600">
+                  Password must be less than 20 characters
+                </p>
+              )}
+              {errors.password?.type === "pattern" && (
+                <p className="text-red-600">
+                  Password must have one Uppercase one lower case, one number
+                  and one special character.
+                </p>
+              )}
+
+              <ButtonContainer>
+                <Button content="Register" />
+              </ButtonContainer>
+            </form>
+          </InputContainer>
+
+          <LoginWith>OR Register WITH</LoginWith>
+          <HorizontalRule />
+          <IconsContainer>
+           <div>
+          <div onClick={handleGoogleSignIn}>
+          <Icon  color="#F4B422">
+              <FaGoogle />
+            </Icon>
+          </div>
+           </div>
+            <Icon color="blue">
+              <FaFacebookF />
+            </Icon>
+            <Icon color="red">
+              <FaInstagram />
+            </Icon>
+            <Icon color="green">
+              <FaTwitter />
+            </Icon>
+          </IconsContainer>
+          <ForgotPassword className="text-black font-bold">
+            Do not have an account?
+            <Link className="text-blue-500  font-bold text-lg" to={"/login"}>
+              Login
+            </Link>
+          </ForgotPassword>
+        </MainContainer>
       </div>
-       <div className='flex justify-center items-end'> <Link className='text-white bg-blue-500 text-xl font-bold btn btn-xl mt-20' to={'/'}>  Register later </Link></div>
-     </>
-    );
-
-   
+      <div className="flex justify-center items-end">
+        {" "}
+        <Link
+          className="text-white bg-blue-500 text-xl font-bold btn btn-xl mt-20"
+          to={"/"}
+        >
+          {" "}
+          Register later{" "}
+        </Link>
+      </div>
+    </>
+  );
 };
 
 const MainContainer = styled.div`
@@ -63,7 +210,8 @@ const MainContainer = styled.div`
   border-radius: 10px;
   color: #ffffff;
   text-transform: uppercase;
-  letter-spacing: 0.4rem;
+  padding: 1rem 2rem;
+  /* letter-spacing: 0.4rem; */
   @media only screen and (max-width: 320px) {
     width: 80vw;
     height: 90vh;
@@ -109,7 +257,7 @@ const InputContainer = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 20%;
+  height: 50%;
   width: 100%;
 `;
 
@@ -123,6 +271,8 @@ const ButtonContainer = styled.div`
 
 const LoginWith = styled.h5`
   cursor: pointer;
+  color: #000000;
+  font-weight: 500;
 `;
 
 const HorizontalRule = styled.hr`

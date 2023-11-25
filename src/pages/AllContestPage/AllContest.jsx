@@ -19,7 +19,7 @@ const AllContest = () => {
 
 
   return (
-    <div style={{ backgroundImage: `url(${bg})` }} className="  ">
+    <div style={{ backgroundImage: `url(${bg})` }} className=" pb-20 ">
       <SectionTitle
         title={"All Contest"}
         subTitle={"Explore Our All Incredivle Contest"}

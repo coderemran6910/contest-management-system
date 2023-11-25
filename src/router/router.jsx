@@ -4,6 +4,8 @@ import Home from "../pages/HomePage/Home";
 import AllContest from "../pages/AllContestPage/AllContest";
 import Login from "../pages/LoginPage/Login";
 import Register from "../pages/RegisterPage/Register";
+import AdminLayout from "../Layouts/AdminLayout";
+import AddContest from "../pages/AdminPages/AddContest";
 
 const router = createBrowserRouter([
     {
@@ -30,7 +32,21 @@ const router = createBrowserRouter([
     {
         path: "/register",
         element: <Register></Register>
+    },
+
+    // admin route
+    {
+        path:'/admin',
+        element: <AdminLayout></AdminLayout>,
+        children:[
+            {
+                index: true,
+                path: '/admin',
+                element:<AddContest> </AddContest>
+            }
+        ]
     }
+
 
     
 ])

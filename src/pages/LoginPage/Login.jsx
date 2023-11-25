@@ -4,9 +4,7 @@ import Button from './Button';
 import Icon from './Icon';
 import Input from './Inputs';
 import {FaFacebookF, FaGoogle, FaInstagram, FaTwitter} from 'react-icons/fa';
-import SectionTitle from '../../components/shared/SectionTitle';
 import { Link } from 'react-router-dom';
-import StyledButton from '../../components/shared/StyledButton';
 
 const Login = () => {
     return (
@@ -20,7 +18,7 @@ const Login = () => {
           <Input type="password" placeholder="Password" />
         </InputContainer>
         <ButtonContainer>
-          <Button content="Register" />
+          <Button content="Login" />
         </ButtonContainer>
         <LoginWith>OR LOGIN WITH</LoginWith>
         <HorizontalRule />

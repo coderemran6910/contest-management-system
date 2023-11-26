@@ -8,7 +8,6 @@ import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
-import Swal from "sweetalert2";
 
 const Register = () => {
   const {googleSignIn} = useAuth()
@@ -16,21 +15,15 @@ const Register = () => {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
   const { createUser } = useContext(AuthContext);
   const onSubmit = (data) => {
     createUser(data.email, data.password).then((result) => {
-      Swal.fire({
-        title: "Good job!",
-        text: "You clicked the button!",
-        icon: "success"
-      });
-
       toast.success('User created successfully')
       console.log(result.user);
+      navigate('/')
 
       // const loggedUser = result.user;+
       // console.log(loggedUser);
@@ -67,7 +60,8 @@ const Register = () => {
     googleSignIn()
     .then(result =>{
         console.log(result.user);
-        toast.success('User created successfully')
+        toast.success('SIgn in with  successfully')
+        navigate('/')
         // const userInfo = {
         //     email: result.user?.email,
         //     name: result.user?.displayName
@@ -97,32 +91,36 @@ const Register = () => {
               {/* Inputs  */}
 
               <input
+               style={{boxShadow: '9px 6px 10px 1px #000000'}}
                 type="text"
                 placeholder="User name"
                 {...register("name", { required: true })}
-                className="w-full p-2 rounded-full  bg-slate-100 text-black  shadow-xl  border-4 border-[#993922] "
+                className="w-full p-3 rounded-full  bg-slate-100 text-black  shadow-xl  border-2  "
               />
                {errors.name && <span className="text-red-600">Name is required</span>}
 
               <input
+               style={{boxShadow: '9px 6px 10px 1px #000000'}}
                 type="text"
                 placeholder="Photo URL"
                 {...register("photo", { required: true })}
-                className="w-full p-2 rounded-full  bg-slate-100 text-black  shadow-xl  border-4 border-[#993922] "
+                className="w-full p-3 rounded-full  bg-slate-100 text-black  shadow-xl  border-2  "
               />
                {errors.photo && <span className="text-red-600">Photo URL is required</span>}
               <input
+               style={{boxShadow: '9px 6px 10px 1px #000000'}}
                 type="email"
                 placeholder="Email"
                 {...register("email", { required: true })}
-                className="w-full p-2 rounded-full  bg-slate-100 text-black  shadow-xl  border-4 border-[#993922] "
+                className="w-full p-3 rounded-full  bg-slate-100 text-black  shadow-xl  border-2  "
               />
                {errors.email && <span className="text-red-600">Email is required</span>}
 
               <input
+               style={{boxShadow: '9px 6px 10px 1px #000000'}}
                 type="password"
                 placeholder="Password"
-                className="w-full p-2 rounded-full  bg-slate-100 text-black  shadow-xl  border-4 border-[#993922] "
+                className="w-full p-3 rounded-full  bg-slate-100 text-black  shadow-xl  border-2  "
                 {...register("password", {
                   required: true,
                   minLength: 6,

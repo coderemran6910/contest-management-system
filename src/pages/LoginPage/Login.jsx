@@ -1,52 +1,150 @@
-
-import styled from 'styled-components';
-import Button from './Button';
-import Icon from './Icon';
-import Input from './Inputs';
-import {FaFacebookF, FaGoogle, FaInstagram, FaTwitter} from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import styled from "styled-components";
+import Button from "./Button";
+import Icon from "./Icon";
+import { FaFacebookF, FaGoogle, FaInstagram, FaTwitter } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import { toast } from "react-toastify";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
-    return (
-     <>
-      <div className='flex justify-center items-center'>
-          <MainContainer className='mt-20'>
-        <WelcomeText className='text-[#993922] text-3xl font-extrabold'>Login </WelcomeText>
-   
-        <InputContainer>
-          <Input type="text" placeholder="Email" />
-          <Input type="password" placeholder="Password" />
-        </InputContainer>
-        <ButtonContainer>
-          <Button content="Login" />
-        </ButtonContainer>
-        <LoginWith>OR LOGIN WITH</LoginWith>
-        <HorizontalRule />
-        <IconsContainer>
-          <Icon color= "#F4B422">
-            <FaGoogle />
-          </Icon>
-          <Icon color= "blue">
-            <FaFacebookF />
-          </Icon>
-          <Icon color="red">
-            <FaInstagram />
-          </Icon>
-          <Icon color="green">
-            <FaTwitter />
-          </Icon>
-        </IconsContainer>
-        <ForgotPassword className='text-black font-bold'>Do not have an account?<Link className='text-blue-500  font-bold text-lg' to={"/register"}>Register</Link></ForgotPassword>
+  const { googleSignIn, signIn } = useAuth();
+  const navigate = useNavigate();
 
-       
-      </MainContainer>
-     
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    signIn(data.email, data.password).then((result) => {
+      toast.success("Logged in successfully");
+      console.log(result.user);
+      navigate("/");
+
+      // const loggedUser = result.user;+
+      // console.log(loggedUser);
+      // updateUserProfile(data.name, data.photoURL)
+      //     .then(() => {
+      // create user entry in the database
+      // const userInfo = {
+      //     name: data.name,
+      //     email: data.email
+      // }
+      //     axiosPublic.post('/users', userInfo)
+      //         .then(res => {
+      //             if (res.data.insertedId) {
+      //                 console.log('user added to the database')
+      //                 reset();
+      //                 Swal.fire({
+      //                     position: 'top-end',
+      //                     icon: 'success',
+      //                     title: 'User created successfully.',
+      //                     showConfirmButton: false,
+      //                     timer: 1500
+      //                 });
+      //                 navigate('/');
+      //             }
+      //         })
+
+      // })
+      // .catch(error => console.log(error))
+    });
+  };
+
+  const handleGoogleSignIn = () => {
+    googleSignIn().then((result) => {
+      console.log(result.user);
+      toast.success("SIgn in with  successfully");
+      // const userInfo = {
+      //     email: result.user?.email,
+      //     name: result.user?.displayName
+      // }
+
+      // axiosPublic.post('/users', userInfo)
+      // .then(res =>{
+      //     console.log(res.data);
+      //     navigate('/');
+      // })
+    });
+  };
+
+  return (
+    <>
+      <div className="flex justify-center items-center">
+        <MainContainer className="mt-20 p-10">
+          <WelcomeText className="text-[#993922] text-3xl font-extrabold">
+            Login{" "}
+          </WelcomeText>
+
+          <InputContainer>
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-10">
+              <input
+                style={{ boxShadow: "9px 6px 10px 1px #000000" }}
+                type="email"
+                placeholder="Email"
+                className="w-full p-3 rounded-full  bg-slate-100 text-black  shadow-xl  border-2  "
+                {...register("email", { required: true })}
+              />
+              {errors.name && (
+                <span className="text-red-600">Email is required</span>
+              )}
+
+              <input
+                style={{ boxShadow: "9px 6px 10px 1px #000000" }}
+                type="password"
+                placeholder="User name"
+                className="w-full p-3 rounded-full  bg-slate-100 text-black  shadow-xl  border-2  "
+                {...register("password", { required: true })}
+              />
+              {errors.name && (
+                <span className="text-red-600">password is required</span>
+              )}
+
+              <ButtonContainer>
+                <Button content="Login" />
+              </ButtonContainer>
+            </form>
+          </InputContainer>
+
+          <LoginWith>OR LOGIN WITH</LoginWith>
+          <HorizontalRule />
+          <IconsContainer>
+            <div onClick={handleGoogleSignIn}>
+              <Icon color="#F4B422">
+                <FaGoogle />
+              </Icon>
+            </div>
+            <Icon color="blue">
+              <FaFacebookF />
+            </Icon>
+            <Icon color="red">
+              <FaInstagram />
+            </Icon>
+            <Icon color="green">
+              <FaTwitter />
+            </Icon>
+          </IconsContainer>
+          <ForgotPassword className="text-black font-bold">
+            Do not have an account?
+            <Link className="text-blue-500  font-bold text-lg" to={"/register"}>
+              Register
+            </Link>
+          </ForgotPassword>
+        </MainContainer>
       </div>
-       <div className='flex justify-center items-end'> <Link className='text-white bg-blue-500 text-xl font-bold btn btn-xl mt-20' to={'/'}>  login later </Link></div>
-     </>
-    );
-
-   
+      <div className="flex justify-center items-end">
+        {" "}
+        <Link
+          className="text-white bg-blue-500 text-xl font-bold btn btn-xl mt-20"
+          to={"/"}
+        >
+          {" "}
+          login later{" "}
+        </Link>
+      </div>
+    </>
+  );
 };
 
 const MainContainer = styled.div`
@@ -63,7 +161,8 @@ const MainContainer = styled.div`
   border-radius: 10px;
   color: #ffffff;
   text-transform: uppercase;
-  letter-spacing: 0.4rem;
+  padding: 1rem 2rem;
+  /* letter-spacing: 0.4rem; */
   @media only screen and (max-width: 320px) {
     width: 80vw;
     height: 90vh;
@@ -109,7 +208,7 @@ const InputContainer = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 20%;
+  height: 50%;
   width: 100%;
 `;
 
@@ -123,6 +222,8 @@ const ButtonContainer = styled.div`
 
 const LoginWith = styled.h5`
   cursor: pointer;
+  color: #000000;
+  font-weight: 500;
 `;
 
 const HorizontalRule = styled.hr`

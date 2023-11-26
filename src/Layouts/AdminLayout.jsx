@@ -41,7 +41,7 @@ const AdminLayout = () => {
               <div className="flex flex-col items-center md:px-5">
               <NavLink className="btn bg-black w-full mt-5 text-slate-300 font-bold" to={'/profile'}>
                   Add Food
-                </NavLink>
+                </NavLink> 
                 <NavLink
                   className="btn bg-black w-full mt-5 text-slate-300 font-bold"
                   to={`/profile/myfoods/${user.email}`}

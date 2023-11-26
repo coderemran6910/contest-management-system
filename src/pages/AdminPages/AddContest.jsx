@@ -15,13 +15,14 @@ const AddContest = () => {
         <div className="md:flex mb-8 gap-5">
           <div className="form-control md:w-1/2">
             <label className="label">
-              <span className="label-text">Product Name</span>
+              <span className="label-text">Contest Name</span>
             </label>
             <label className="input-group">
               <input
+               style={{ boxShadow: "9px 6px 10px 1px #000000" }}
                 type="text"
                 name="name"
-                placeholder="Product Name"
+                placeholder="Contest Name"
                 className="input input-bordered w-full"
               />
             </label>
@@ -29,13 +30,14 @@ const AddContest = () => {
 
           <div className="form-control md:w-1/2">
             <label className="label">
-              <span className="label-text">Price</span>
+              <span className="label-text">Image url</span>
             </label>
             <label className="input-group">
               <input
+               style={{ boxShadow: "9px 6px 10px 1px #000000" }}
                 type="text"
-                name="price"
-                placeholder="Price"
+                name="image"
+                placeholder="Image Url"
                 className="input input-bordered w-full"
               />
             </label>
@@ -46,12 +48,13 @@ const AddContest = () => {
         <div className="md:flex mb-8 gap-5">
           <div className="form-control md:w-1/2">
             <label className="label">
-              <span className="label-text">Product Image</span>
+              <span className="label-text"> Contest Price </span>
             </label>
             <label className="input-group">
               <input
+               style={{ boxShadow: "9px 6px 10px 1px #000000" }}
                 type="text"
-                name="image"
+                name="description"
                 placeholder="Product Image"
                 className="input input-bordered w-full"
               />
@@ -60,13 +63,14 @@ const AddContest = () => {
 
           <div className="form-control md:w-1/2">
             <label className="label">
-              <span className="label-text">Quantity</span>
+              <span className="label-text"> Contest Prize Money</span>
             </label>
             <label className="input-group">
               <input
+               style={{ boxShadow: "9px 6px 10px 1px #000000" }}
                 type="text"
-                name="quantity"
-                placeholder="Quantity"
+                name="money"
+                placeholder="Enter price money ammount "
                 className="input input-bordered w-full"
               />
             </label>
@@ -77,22 +81,24 @@ const AddContest = () => {
         <div className="md:flex mb-8 gap-3  ">
           <div className="form-control md:w-1/2">
             <label className="label">
-              <span className="label-text">Choose a Type</span>
+              <span className="label-text">Contest Type</span>
             </label>
             <select
-              name="category"
+             style={{ boxShadow: "9px 6px 10px 1px #000000" }}
+              name="type"
               type="text"
               className="select select-bordered w-full "
             >
-              <option value="pizza">pizza</option>
-              <option value="meat">meat</option>
-              <option value="salad">salad</option>
-              <option value="rice">rice</option>
-              <option value="sushi">sushi</option>
-              <option value="burger ">burger</option>
-              <option value="indian ">indian</option>
-              <option value="sandwich ">sandwich</option>
-              <option value="soup ">soup</option>
+             <option value="Art">Art</option>
+              <option value="Coding">Coding</option>
+              <option value="Design">Design</option>
+              <option value="Writing">Writing</option>
+              <option value="Photography">Photography</option>
+              <option value="Innovation">Innovation</option>
+              <option value="Music">Music</option>
+              <option value="Film">Film</option>
+              <option value="Gaming">Gaming</option>
+              <option value="Cooking">Cooking</option>
             </select>
           </div>
 
@@ -103,25 +109,29 @@ const AddContest = () => {
               </span>
             </label>
             <textarea
-              placeholder="Food Description"
+             style={{ boxShadow: "9px 6px 10px 1px #000000" }}
+              placeholder="Contest Description"
               className="input input-bordered w-full"
               name="description"
             ></textarea>
           </div>
 
-          <div className="form-control md:w-1/2">
+
+          <div className="form-control md:w-1/2 ">
             <label className="label">
-              <span className="label-text">Food Origin(country)</span>
+              <span className="label-text w-full text-center">
+              Task Submission text instruction
+              </span>
             </label>
-            <label className="input-group">
-              <input
-                type="text"
-                name="country"
-                placeholder="Food Origin"
-                className="input input-bordered w-full"
-              />
-            </label>
+            <textarea
+             style={{ boxShadow: "9px 6px 10px 1px #000000" }}
+              placeholder="text instruction"
+              className="input input-bordered w-full"
+              name="description"
+            ></textarea>
           </div>
+
+          
         </div>
 
         <input

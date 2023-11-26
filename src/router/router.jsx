@@ -6,11 +6,13 @@ import Login from "../pages/LoginPage/Login";
 import Register from "../pages/RegisterPage/Register";
 import AdminLayout from "../Layouts/AdminLayout";
 import AddContest from "../pages/AdminPages/AddContest";
+import Error404 from "../pages/ErrorPage/Error404";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <App></App>,
+        errorElement:<Error404></Error404>, 
         children: [
             {
                 index: true,

@@ -7,12 +7,13 @@ import Register from "../pages/RegisterPage/Register";
 import AdminLayout from "../Layouts/AdminLayout";
 import AddContest from "../pages/AdminPages/AddContest";
 import Error404 from "../pages/ErrorPage/Error404";
+import PrivateRoute from "./PrivateRoutes";
 
 const router = createBrowserRouter([
     {
         path: "/",
+        errorElement: <Error404></Error404>,
         element: <App></App>,
-        errorElement:<Error404></Error404>, 
         children: [
             {
                 index: true,
@@ -39,12 +40,12 @@ const router = createBrowserRouter([
     // admin route
     {
         path:'/admin',
-        element: <AdminLayout></AdminLayout>,
+        element:<PrivateRoute> <AdminLayout></AdminLayout></PrivateRoute>,
         children:[
             {
                 index: true,
                 path: '/admin',
-                element:<AddContest> </AddContest>
+                element:<PrivateRoute> <AddContest> </AddContest></PrivateRoute>
             }
         ]
     }

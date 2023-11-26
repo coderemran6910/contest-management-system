@@ -1,16 +1,27 @@
+import { useForm } from "react-hook-form";
 import SectionTitle from "../../components/shared/SectionTitle";
 
 const AddContest = () => {
-  const handleAddFood = (event) => {
-    event.preventDefault();
+
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
   };
+
+
+
 
   return (
     <div className=" px-10">
       <div className="py-10">
         <SectionTitle title="Add a new Contest " ></SectionTitle>
       </div>
-      <form onSubmit={handleAddFood} className="max-w-7xl mx-auto  ">
+      <form onSubmit={handleSubmit(onSubmit)} className="max-w-7xl mx-auto  ">
         {/* Name and Price */}
         <div className="md:flex mb-8 gap-5">
           <div className="form-control md:w-1/2">
@@ -23,7 +34,8 @@ const AddContest = () => {
                 type="text"
                 name="name"
                 placeholder="Contest Name"
-                className="input input-bordered w-full"
+                className="input input-bordered w-full "
+                {...register("name")}
               />
             </label>
           </div>
@@ -39,6 +51,7 @@ const AddContest = () => {
                 name="image"
                 placeholder="Image Url"
                 className="input input-bordered w-full"
+                {...register("image")}
               />
             </label>
           </div>
@@ -54,9 +67,10 @@ const AddContest = () => {
               <input
                style={{ boxShadow: "9px 6px 10px 1px #000000" }}
                 type="text"
-                name="description"
+                name="price"
                 placeholder="Product Image"
                 className="input input-bordered w-full"
+                {...register("price")}
               />
             </label>
           </div>
@@ -69,9 +83,11 @@ const AddContest = () => {
               <input
                style={{ boxShadow: "9px 6px 10px 1px #000000" }}
                 type="text"
-                name="money"
+                name="prize"
                 placeholder="Enter price money ammount "
                 className="input input-bordered w-full"
+                {...register("prize")}
+                
               />
             </label>
           </div>
@@ -88,6 +104,8 @@ const AddContest = () => {
               name="type"
               type="text"
               className="select select-bordered w-full "
+              {...register("type")}
+
             >
              <option value="Art">Art</option>
               <option value="Coding">Coding</option>
@@ -113,6 +131,7 @@ const AddContest = () => {
               placeholder="Contest Description"
               className="input input-bordered w-full"
               name="description"
+              {...register("description")}
             ></textarea>
           </div>
 
@@ -127,18 +146,21 @@ const AddContest = () => {
              style={{ boxShadow: "9px 6px 10px 1px #000000" }}
               placeholder="text instruction"
               className="input input-bordered w-full"
-              name="description"
+              name="instruction"
+              {...register("instruction")}
             ></textarea>
           </div>
 
           
         </div>
 
+        <div>
         <input
           type="submit"
-          value="Add product"
+          value="Add Contest"
           className="btn bg-black hover:bg-[#040904] btn-block text-slate-300" 
         />
+        </div>
       </form>
     </div>
   );

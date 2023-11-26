@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import ProfieDropdown from "../components/utility/ProfieDropdown";
 import { toast } from "react-toastify";
+import { FaAllergies, FaArrowRight, FaChevronLeft, FaHome, FaListAlt } from "react-icons/fa";
 
 const MainLayout = ({ children }) => {
 
@@ -18,21 +19,21 @@ const MainLayout = ({ children }) => {
   const menu = (
     <>
       <NavLink className="btn btn-ghost text-xl " to={"/"}>
-        Home
+       <FaHome /> Home
       </NavLink>
       <NavLink className="btn btn-ghost text-xl " to={"/allcontest"}>
-        All Contest
+       <FaListAlt /> All Contest
       </NavLink>
       {user ? (
         <>
           <button onClick={handleLogOut} className="btn btn-error text-xl">
-            log out
+           <FaChevronLeft /> log out
           </button>
         </>
       ) : (
         <>
           <NavLink className="btn btn-ghost text-xl " to={"/login"}>
-            Login
+           <FaArrowRight /> Login
           </NavLink>
         </>
       )}

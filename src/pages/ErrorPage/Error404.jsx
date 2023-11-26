@@ -1,15 +1,15 @@
 import error404 from '../../assets/error.json'
 import Lottie from "lottie-react";
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { FaArrowLeft } from "react-icons/fa";
 
 const Error404 = () => {
     return (
-        <div className='flex flex-col justify-center items-center w-70% mx-auto'>
-                    <Helmet><title> Error 404  </title></Helmet>
-
+        <div className='flex flex-col  justify-center items-center w-10/12 mx-auto'>
+            
             <Lottie animationData={error404} loop></Lottie>
-            <Link className='btn btn-success text-white font-bold ' to={'/'} > Back to home </Link>
+            <Link className='btn bg-[#993922] text-white font-bold ' to={'/'} > <span className='text-white'> <FaArrowLeft /> </span>  Back to home </Link>
+            
         </div>
     );
 };

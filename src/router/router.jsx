@@ -9,6 +9,7 @@ import AddContest from "../pages/AdminPages/AddContest";
 import Error404 from "../pages/ErrorPage/Error404";
 import PrivateRoute from "./PrivateRoutes";
 import DetailsContest from "../pages/AllContestPage/DetailsContest";
+import ManageUser from "../pages/AdminPages/ManageUserPage";
 
 const router = createBrowserRouter([
     {
@@ -51,6 +52,14 @@ const router = createBrowserRouter([
                 index: true,
                 path: '/admin',
                 element:<PrivateRoute> <AddContest> </AddContest></PrivateRoute>
+            },
+            {
+                path: 'manageuser',
+                element:<PrivateRoute> <ManageUser></ManageUser>  </PrivateRoute>
+            },
+            {
+                path: 'managecontest',
+                element:<PrivateRoute> <ManageUser></ManageUser>  </PrivateRoute>
             }
         ]
     }

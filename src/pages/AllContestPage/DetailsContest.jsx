@@ -52,12 +52,12 @@ const DetailsContest = () => {
 
 
       <div className="hero min-h-screen">
-        <div className="hero-content flex-col lg:flex-row-reverse ">
+        <div className=" ">
           {/* Banner   */}
           {/* <div className=" w-94 lg:w-1/2 rounded-lg shadow-2xl"><img src={image} className="rounded-lg" /></div> */}
-          <div className="card flex-shrink-0 w-full max-w-2xl shadow-2xl bg-base-100  p-5 ">
+          <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100 bg-opacity-30 p-5 ">
             <h1 className="text-5xl font-bold">
-              Contest Name: <span className="text-[#67b76f]">{name}</span>{" "}
+              Contest Name: <span className="text-[#2a3000]">{name}</span>{" "}
             </h1>
             <p className="py-6">{description}</p>
             <p className="py-6 text-xl font-bold">Price: ${price}</p>
@@ -66,11 +66,13 @@ const DetailsContest = () => {
             <p className="py-6">
               Type: <span className=" text-bold">{type}</span>
             </p>
-            <p className="py-6">
-              {" "}
+           <div className="flex justify-between ">
+           <p className="py-6">
               contest Prize{" "}
               <span className="text-red-400 text-xl">{prize}</span>
             </p>
+            <StyledButton text={"Register Now"}></StyledButton>
+           </div>
           </div>
         </div>
       </div>

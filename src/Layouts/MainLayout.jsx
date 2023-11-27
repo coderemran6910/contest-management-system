@@ -18,21 +18,21 @@ const MainLayout = ({ children }) => {
 
   const menu = (
     <>
-      <NavLink className="btn btn-ghost text-xl " to={"/"}>
+      <NavLink className="btn btn-sm btn-ghost text-xl " to={"/"}>
        <FaHome /> Home
       </NavLink>
-      <NavLink className="btn btn-ghost text-xl " to={"/allcontest"}>
+      <NavLink className="btn btn-sm btn-ghost text-xl " to={"/allcontest"}>
        <FaListAlt /> All Contest
       </NavLink>
       {user ? (
         <>
-          <button onClick={handleLogOut} className="btn btn-error text-xl">
+          <button onClick={handleLogOut} className="btn btn-error btn-sm text-xl">
            <FaChevronLeft /> log out
           </button>
         </>
       ) : (
         <>
-          <NavLink className="btn btn-ghost text-xl " to={"/login"}>
+          <NavLink className="btn btn-sm btn-ghost text-xl " to={"/login"}>
            <FaArrowRight /> Login
           </NavLink>
         </>
@@ -44,20 +44,13 @@ const MainLayout = ({ children }) => {
     </>
   );
 
-
-
-
-
-
- 
-
   return (
     <div className="drawer">
       <title>Home Page </title>
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col ">
         {/* Navbar */}
-        <div className="w-full navbar bg-black text-white py-5">
+        <div className="w-full navbar bg-black text-white py-0">
           <div className="w-full max-w-7xl mx-auto">
             <div className="flex-none lg:hidden">
               <label
@@ -83,11 +76,11 @@ const MainLayout = ({ children }) => {
 
             {/* Logo */}
             <div className="flex-1 px-2 text-right lg:text-left text-3xl font-extrabold ">
-              <span className="bg-[#FBB464] text-black py-5  w-16 h-16 rounded-full text-4xl">
-                C
+              <span className="bg-[#FBB464] text-black p-2  w-16 h-16 rounded-full text-4xl">
+                CON
               </span>
               <span className=" tracking-wide border-b-2 text-[#993922] border-[#993922] ">
-                ontest
+                test
               </span>
             </div>
 

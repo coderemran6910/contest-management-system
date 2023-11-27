@@ -50,7 +50,7 @@ const Register = () => {
     googleSignIn()
     .then(result =>{
         console.log(result.user);
-        toast.success('SIgn in with  successfully')
+        toast.success('Sign in with google successfully')
         navigate('/')
         const userInfo = {
             email: result.user?.email,

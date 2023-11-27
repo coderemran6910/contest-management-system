@@ -6,8 +6,10 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Login = () => {
+  const axiosPublic = useAxiosPublic();
   const { googleSignIn, signIn } = useAuth();
   const navigate = useNavigate();
 
@@ -21,54 +23,29 @@ const Login = () => {
       toast.success("Logged in successfully");
       console.log(result.user);
       navigate("/");
-
-      // const loggedUser = result.user;+
-      // console.log(loggedUser);
-      // updateUserProfile(data.name, data.photoURL)
-      //     .then(() => {
-      // create user entry in the database
-      // const userInfo = {
-      //     name: data.name,
-      //     email: data.email
-      // }
-      //     axiosPublic.post('/users', userInfo)
-      //         .then(res => {
-      //             if (res.data.insertedId) {
-      //                 console.log('user added to the database')
-      //                 reset();
-      //                 Swal.fire({
-      //                     position: 'top-end',
-      //                     icon: 'success',
-      //                     title: 'User created successfully.',
-      //                     showConfirmButton: false,
-      //                     timer: 1500
-      //                 });
-      //                 navigate('/');
-      //             }
-      //         })
-
-      // })
-      // .catch(error => console.log(error))
     });
   };
 
-  const handleGoogleSignIn = () => {
-    googleSignIn().then((result) => {
-      console.log(result.user);
-      toast.success("SIgn in with  successfully");
-      navigate('/')
-      // const userInfo = {
-      //     email: result.user?.email,
-      //     name: result.user?.displayName
-      // }
+  const handleGoogleSignIn = () =>{
+    googleSignIn()
+    .then(result =>{
+        console.log(result.user);
+        toast.success('SIgn in with google successfully')
+        navigate('/')
+        const userInfo = {
+            email: result.user?.email,
+            name: result.user?.displayName,
+            image: result.user?.photoURL,
+            role: 'user'
+        }
+        console.log(userInfo);
 
-      // axiosPublic.post('/users', userInfo)
-      // .then(res =>{
-      //     console.log(res.data);
-      //     navigate('/');
-      // })
-    });
-  };
+        axiosPublic.post('/users', userInfo)
+        .then(() =>{
+            navigate('/');
+        })
+    })
+}
 
   return (
     <>

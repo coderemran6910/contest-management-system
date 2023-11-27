@@ -34,27 +34,25 @@ const ManageUser = () => {
         if (result.isConfirmed) {
 
             axiosPublic.delete(`/users/${email}`)
-                .then(res => {
-                    if (res.data.deletedCount > 0) {
-                        refetch();
-                        Swal.fire({
-                            title: "Deleted!",
-                            text: "Your file has been deleted.",
-                            icon: "success"
-                        });
-                    }
+                .then(() => {
+                  toast.success('User deleted successfully')
+                  refetch();
+                   
                 })
         }
     });
 }
 
 // Handle Make Creator Role
- const handleMakeCreator = email =>{
+ const handleMakeCreator = (email, role) =>{
+  if(role === 'creator'){
+    return toast.error('User Already creator')
+  }
         axiosPublic.patch(`/users/${email}`, {role: 'creator'})
         .then(res =>{
             console.log(res.data)
-            refetch();
             toast.success('Make creator successfully')
+            refetch();
            
         })
         .catch(err =>{

@@ -1,19 +1,9 @@
-import { AuthContext } from "../provider/AuthProvider";
 import { NavLink, Outlet } from "react-router-dom";
-import { useContext } from "react";
 import MainLayout from "./MainLayout";
-import { toast } from "react-toastify";
 import bg from '../assets/commonbg.png'
 
 const AdminLayout = () => {
-  const { user, logOut } = useContext(AuthContext);
 
-  const handleLogOut = () => {
-    logOut()
-      .then(() => {
-        toast.success("Log out successfully");
-      })
-  };
 
   return (
     <div style={{ backgroundImage: `url(${bg})` }} className="min-h-screen bg-cover bg-center">
@@ -23,7 +13,8 @@ const AdminLayout = () => {
           <div className="col-span-12 md:col-span-3 bg-[#D1A054] md:h-screen rounded-xl px-5">
             <div className="md:sticky top-0 md:block">
               {/* Content */}
-              <div className="flex flex-col items-center">
+              
+              {/* <div className="flex flex-col items-center">
                 <div className="modal-box flex flex-col justify-center items-center text-center">
                   <div className="avatar cursor-pointer">
                     <div className="w-20 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
@@ -36,7 +27,7 @@ const AdminLayout = () => {
                     Log Out
                   </button>
                 </div>
-              </div>
+              </div> */}
 
               <div className="flex flex-col items-center md:px-5">
               <NavLink className="btn bg-black w-full mt-5 text-slate-300 font-bold hover:bg-[#2f281e]" to={'/admin'}>

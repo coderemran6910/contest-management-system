@@ -10,7 +10,7 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Register = () => {
   const axiosPublic = useAxiosPublic()
-  const {googleSignIn, updateUserProfile, createUser} = useAuth()
+  const {googleSignIn, updateUserProfile, createUser, user} = useAuth()
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const navigate = useNavigate();
@@ -26,9 +26,11 @@ const Register = () => {
           .then(() => {
       // create user entry in the database
       const userInfo = {
-          name: data.name,
-          email: data.email
+          name: data?.name,
+          email: data?.email,
+          image: data?.image || user?.photoURL
       }
+      console.log(userInfo);
           axiosPublic.post('/users', userInfo)
               .then(res => {
                   if (res.data.insertedId) { 
@@ -91,7 +93,7 @@ const Register = () => {
                style={{boxShadow: '9px 6px 10px 1px #000000'}}
                 type="text"
                 placeholder="Photo URL"
-                {...register("photo", { required: true })}
+                {...register("image", { required: true })}
                 className="w-full p-3 rounded-full  bg-slate-100 text-black  shadow-xl  border-2  "
               />
                {errors.photo && <span className="text-red-600">Photo URL is required</span>}

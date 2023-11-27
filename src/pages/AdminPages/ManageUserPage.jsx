@@ -1,26 +1,24 @@
-import { Link, useLoaderData } from "react-router-dom";
-import { useState } from "react";
+import { Link } from "react-router-dom";
+import {useQuery} from "@tanstack/react-query";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const ManageUser = () => {
-  const myOrder = useLoaderData();
-  const [reminingOrder, setReminingOrder] = useState(myOrder);
 
-  // const handleDelete=(id)=>{
-  //   axios.delete(`https://restaurent-server.vercel.app/api/v1/orders/${id}`)
-  //   .then((res)=>{
-  //     Swal.fire({
-  //       position: "center",
-  //       icon: "success",
-  //       title: "Product delete success",
-  //       showConfirmButton: true,
-  //     })
+ const axiosPublic = useAxiosPublic();
 
-  //     const filterOrder = myOrder.filter(order=> order._id !== id);
-  //     setReminingOrder(filterOrder);
+  const { data: users = [] } = useQuery({
+    queryKey: ["singleContest"],
+    queryFn: async () => {
+      try {
+        const res = await axiosPublic.get(`/users`);
+        return res.data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  });
 
-  //   })
-  //   .catch(err=> console.log(err))
-  // }
+
 
   return (
     <>
@@ -35,16 +33,17 @@ const ManageUser = () => {
                   <input type="checkbox" className="checkbox" />
                 </label>
               </th>
-              <th>Products</th>
+              <th>image</th>
               <th> Name</th>
-              <th> Product id </th>
-              <th></th>
+              <th> Email</th>
+              <th>Role</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            {reminingOrder?.map((order) => {
-              const { _id, name, buyerName, buyerEmail, image } = order;
-              console.log(order);
+            {users?.map((user) => {
+              const {name, email, image} = user;
+              console.log(user);
 
               {
                 /* row 1 */
@@ -58,8 +57,7 @@ const ManageUser = () => {
                       </label>
                     </th>
                     <td>
-                      <div className="flex items-center space-x-3">
-                        <div className="avatar">
+                      <div className="avatar">
                           <div className="mask mask-squircle w-12 h-12">
                             <img
                               src={image}
@@ -67,16 +65,14 @@ const ManageUser = () => {
                             />
                           </div>
                         </div>
-                        <div>
-                          <div className="font-bold">{name}</div>
-                          <div className="text-sm opacity-50">{buyerEmail}</div>
-                        </div>
-                      </div>
                     </td>
-                    <td>{buyerName}</td>
-                    <td>{_id}</td>
+
+
+                    <td>{name}</td>
+                    <td>{email}</td>
+                    <td>Creator</td>
                     <th>
-                      <Link className="btn btn-error btn-sm">Delete</Link>
+                      <Link className="btn btn-error btn-sm">Remove</Link>
                     </th>
                   </tr>
                 </>

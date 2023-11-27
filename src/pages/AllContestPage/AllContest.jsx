@@ -9,14 +9,14 @@ import useAllContest from "../../hooks/useAllContest";
 const AllContest = () => {
   const [tabIndex, setTabIndex] = useState(0);
  const [allContest] = useAllContest()
- const codding = allContest.filter(contest => contest.type === 'Coding')
- const design = allContest.filter(contest => contest.type === 'Design')
- const music = allContest.filter(contest => contest.type === 'Music')
- const gamming = allContest.filter(contest => contest.type === 'Gaming')
- const cooking = allContest.filter(contest => contest.type === 'Cooking')
- const innovation = allContest.filter(contest => contest.type === 'Innovation')
- const writing = allContest.filter(contest => contest.type === 'Writing')
+ console.log(allContest);
+ const Business = allContest.filter(contest => contest.type === 'Business') 
+ const Medical = allContest.filter(contest => contest.type === 'Medical')
+ const Article = allContest.filter(contest => contest.type === 'Article')
+ const Writing = allContest.filter(contest => contest.type === 'Writing')
+ const Gaming = allContest.filter(contest => contest.type === 'Gaming')
 
+//  Business Contest, Medical, Contest, Article Writing, Gaming.
 
   return (
     <div style={{ backgroundImage: `url(${bg})` }} className=" pb-20 ">
@@ -30,28 +30,45 @@ const AllContest = () => {
       <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
         <TabList className={"flex gap-4 justify-center my-10 text-white uppercase font-bold text-xl mb-40"}>
           <Tab>All</Tab>
-          <Tab>Coding</Tab>
-          <Tab>Design</Tab>
-          <Tab> Music </Tab>
-          <Tab>Gaming</Tab>
-          <Tab> Cooking </Tab>
-          <Tab> Innovation </Tab>
-          <Tab> Writing </Tab>
+          <Tab>Business </Tab>
+          <Tab>Medical</Tab>
+          <Tab> Article </Tab>
+          <Tab>Writing</Tab>
+          <Tab> Gaming </Tab>
         </TabList>
 
         <TabPanel>
-          <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
-            {allContest.map((contest, indx) => {
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+            { allContest.length < 0 ? <><h2 className="text-center text-3xl text-red-500 text-white "> Empty </h2></> 
+            : 
+            allContest?.map((contest, indx) => {
               return (
                 <CardAllContest key={indx} contest={contest}></CardAllContest>
               );
-            })}
+            })
+            
+          }
           </div>
         </TabPanel>
 
         <TabPanel>
         <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
-            {codding.map((contest, indx) => {
+            { Business.length < 0 ? <><h2 className="text-center text-3xl text-red-500 text-white "> Empty </h2></> 
+            : 
+            Business?.map((contest, indx) => {
+              return (
+                <CardAllContest key={indx} contest={contest}></CardAllContest>
+              );
+            })
+            
+          }
+          </div>
+        </TabPanel>
+
+        
+        <TabPanel>
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+            {Medical.map((contest, indx) => {
               return (
                 <CardAllContest key={indx} contest={contest}></CardAllContest>
               );
@@ -62,7 +79,7 @@ const AllContest = () => {
         
         <TabPanel>
         <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
-            {design.map((contest, indx) => {
+            {Article.map((contest, indx) => {
               return (
                 <CardAllContest key={indx} contest={contest}></CardAllContest>
               );
@@ -73,58 +90,26 @@ const AllContest = () => {
         
         <TabPanel>
         <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
-            {music.map((contest, indx) => {
+            { Writing ? Writing?.map((contest, indx) => {
               return (
                 <CardAllContest key={indx} contest={contest}></CardAllContest>
               );
-            })}
+            })
+            : <h2 className="text-center text-3xl text-red-500"> Empty </h2>
+          }
           </div>
         </TabPanel>
 
         
         <TabPanel>
         <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
-            {gamming.map((contest, indx) => {
+            {Gaming?.map((contest, indx) => {
               return (
                 <CardAllContest key={indx} contest={contest}></CardAllContest>
               );
             })}
           </div>
         </TabPanel>
-
-        
-        <TabPanel>
-        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
-            {cooking.map((contest, indx) => {
-              return (
-                <CardAllContest key={indx} contest={contest}></CardAllContest>
-              );
-            })}
-          </div>
-        </TabPanel>
-
-        
-        <TabPanel>
-        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
-            {innovation.map((contest, indx) => {
-              return (
-                <CardAllContest key={indx} contest={contest}></CardAllContest>
-              );
-            })}
-          </div>
-        </TabPanel>
-
-        
-        <TabPanel>
-        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
-            {writing.map((contest, indx) => {
-              return (
-                <CardAllContest key={indx} contest={contest}></CardAllContest>
-              );
-            })}
-          </div>
-        </TabPanel>
-
         
       </Tabs>
 

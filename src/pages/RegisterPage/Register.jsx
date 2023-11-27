@@ -4,54 +4,42 @@ import Icon from "./Icon";
 import { FaFacebookF, FaGoogle, FaInstagram, FaTwitter } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useContext } from "react";
-import { AuthContext } from "../../provider/AuthProvider";
 import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Register = () => {
-  const {googleSignIn} = useAuth()
+  const axiosPublic = useAxiosPublic()
+  const {googleSignIn, updateUserProfile, createUser} = useAuth()
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const navigate = useNavigate();
-  const { createUser } = useContext(AuthContext);
-  const onSubmit = (data) => {
+  const onSubmit = (data, ) => {
     createUser(data.email, data.password).then((result) => {
       toast.success('User created successfully')
       console.log(result.user);
       navigate('/')
 
-      // const loggedUser = result.user;+
-      // console.log(loggedUser);
-      // updateUserProfile(data.name, data.photoURL)
-      //     .then(() => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+      updateUserProfile(data.name, data.photoURL)
+          .then(() => {
       // create user entry in the database
-      // const userInfo = {
-      //     name: data.name,
-      //     email: data.email
-      // }
-      //     axiosPublic.post('/users', userInfo)
-      //         .then(res => {
-      //             if (res.data.insertedId) {
-      //                 console.log('user added to the database')
-      //                 reset();
-      //                 Swal.fire({
-      //                     position: 'top-end',
-      //                     icon: 'success',
-      //                     title: 'User created successfully.',
-      //                     showConfirmButton: false,
-      //                     timer: 1500
-      //                 });
-      //                 navigate('/');
-      //             }
-      //         })
+      const userInfo = {
+          name: data.name,
+          email: data.email
+      }
+          axiosPublic.post('/users', userInfo)
+              .then(res => {
+                  if (res.data.insertedId) { 
+                      reset();
+                      toast.success('User created successfully')
+                      navigate('/');
+                  }
+              })
 
-      // })
-      // .catch(error => console.log(error))
+      })
+      .catch(error => console.log(error))
     });
   };
 
@@ -62,16 +50,16 @@ const Register = () => {
         console.log(result.user);
         toast.success('SIgn in with  successfully')
         navigate('/')
-        // const userInfo = {
-        //     email: result.user?.email,
-        //     name: result.user?.displayName
-        // }
+        const userInfo = {
+            email: result.user?.email,
+            name: result.user?.displayName
+        }
 
-        // axiosPublic.post('/users', userInfo)
-        // .then(res =>{
-        //     console.log(res.data);
-        //     navigate('/');
-        // })
+        axiosPublic.post('/users', userInfo)
+        .then(res =>{
+            console.log(res.data);
+            navigate('/');
+        })
     })
 }
 

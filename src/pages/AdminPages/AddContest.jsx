@@ -1,7 +1,10 @@
 import { useForm } from "react-hook-form";
 import SectionTitle from "../../components/shared/SectionTitle";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { toast } from "react-toastify";
 
 const AddContest = () => {
+  const axiosPublic = useAxiosPublic()
 
 
   const {
@@ -10,7 +13,13 @@ const AddContest = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    axiosPublic.post("/contests", data)
+    .then(()=>{
+      toast.success("Contest added successfully")
+    })
+    .catch((err)=>{
+      toast.error(err.message)
+    })
   };
 
 
@@ -66,7 +75,7 @@ const AddContest = () => {
             <label className="input-group">
               <input
                style={{ boxShadow: "9px 6px 10px 1px #000000" }}
-                type="text"
+                type="number"
                 name="price"
                 placeholder="Product Image"
                 className="input input-bordered w-full"
@@ -82,7 +91,7 @@ const AddContest = () => {
             <label className="input-group">
               <input
                style={{ boxShadow: "9px 6px 10px 1px #000000" }}
-                type="text"
+                type="number"
                 name="prize"
                 placeholder="Enter price money ammount "
                 className="input input-bordered w-full"
@@ -107,23 +116,19 @@ const AddContest = () => {
               {...register("type")}
 
             >
-             <option value="Art">Art</option>
-              <option value="Coding">Coding</option>
-              <option value="Design">Design</option>
+             <option value="Art">Business</option>
+              <option value="Coding">Medical</option>
+              <option value="Design">Article</option>
               <option value="Writing">Writing</option>
-              <option value="Photography">Photography</option>
-              <option value="Innovation">Innovation</option>
-              <option value="Music">Music</option>
-              <option value="Film">Film</option>
-              <option value="Gaming">Gaming</option>
-              <option value="Cooking">Cooking</option>
+              <option value="Photography">Writing</option>
+              <option value="Innovation">Gaming</option>
             </select>
           </div>
 
           <div className="form-control md:w-1/2 ">
             <label className="label">
               <span className="label-text w-full text-center">
-                Food Description
+                Contest Description
               </span>
             </label>
             <textarea

@@ -8,6 +8,7 @@ import AdminLayout from "../Layouts/AdminLayout";
 import AddContest from "../pages/AdminPages/AddContest";
 import Error404 from "../pages/ErrorPage/Error404";
 import PrivateRoute from "./PrivateRoutes";
+import DetailsContest from "../pages/AllContestPage/DetailsContest";
 
 const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
             {
                 path: "/allcontest",
                 element:<AllContest></AllContest>
+            },
+            {
+                path: "/allcontest/:id",
+                element: <DetailsContest></DetailsContest>
             }
         ]
     },

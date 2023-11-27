@@ -1,72 +1,93 @@
 [
   {
-    "title": "Artistry Unleashed - Expressive Canvas",
-    "attempted": 1500,
+    "name": "Artistry Unleashed - Expressive Canvas",
     "description": "Embrace the power of creativity! This contest is a canvas for artists to paint their imagination and evoke emotions through their artwork.",
     "image": "https://cdn.pixabay.com/photo/2016/11/29/01/34/man-1866574_640.jpg",
+    "instruction": "Your instructions here",
+    "price": 10,
+    "prize": 1000,
     "type": "Art"
   },
   {
-    "title": "CodeCrafters Challenge - Hack the Future",
-    "attempted": 2200,
+    "name": "CodeCrafters Challenge - Hack the Future",
     "description": "Calling all coders! Join this coding challenge and embark on a journey to revolutionize the future through ingenious solutions.",
     "image": "https://cdn.pixabay.com/photo/2016/11/29/01/34/man-1866574_640.jpg",
+    "instruction": "Your instructions here",
+    "price": 20,
+    "prize": 2000,
     "type": "Coding"
   },
   {
-    "title": "Design Fusion - Innovate & Create",
-    "attempted": 1800,
+    "name": "Design Fusion - Innovate & Create",
     "description": "Unleash your design prowess! Participate in this contest to redefine creativity and merge innovation with aesthetics.",
     "image": "https://cdn.pixabay.com/photo/2016/11/29/01/34/man-1866574_640.jpg",
+    "instruction": "Your instructions here",
+    "price": 15,
+    "prize": 1500,
     "type": "Design"
   },
   {
-    "title": "Writing Odyssey - Craft Your Story",
-    "attempted": 1200,
+    "name": "Writing Odyssey - Craft Your Story",
     "description": "Writers, it's your time to shine! Share your stories, poems, and narratives that captivate hearts and minds.",
     "image": "https://cdn.pixabay.com/photo/2016/11/29/01/34/man-1866574_640.jpg",
+    "instruction": "Your instructions here",
+    "price": 12,
+    "prize": 1200,
     "type": "Writing"
   },
   {
-    "title": "Photography Visionaries - Frame the World",
-    "attempted": 2800,
+    "name": "Photography Visionaries - Frame the World",
     "description": "Capture moments that tell stories! Join fellow photographers in this contest to frame the world through your lens.",
     "image": "https://cdn.pixabay.com/photo/2016/11/29/01/34/man-1866574_640.jpg",
+    "instruction": "Your instructions here",
+    "price": 25,
+    "prize": 2500,
     "type": "Photography"
   },
   {
-    "title": "Innovation Summit - Trailblazing Ideas",
-    "attempted": 3200,
+    "name": "Innovation Summit - Trailblazing Ideas",
     "description": "Dare to innovate! Present groundbreaking ideas and pave the way for a future that revolutionizes industries.",
     "image": "https://cdn.pixabay.com/photo/2016/11/29/01/34/man-1866574_640.jpg",
+    "instruction": "Your instructions here",
+    "price": 30,
+    "prize": 3000,
     "type": "Innovation"
   },
   {
-    "title": "Music Maestros - Harmonic Creations",
-    "attempted": 900,
+    "name": "Music Maestros - Harmonic Creations",
     "description": "Let the melodies flow! Participate in this music contest and showcase your talent in rhythm and harmony.",
     "image": "https://cdn.pixabay.com/photo/2016/11/29/01/34/man-1866574_640.jpg",
+    "instruction": "Your instructions here",
+    "price": 18,
+    "prize": 1800,
     "type": "Music"
   },
   {
-    "title": "FilmFest Extravaganza - Cinematic Brilliance",
-    "attempted": 1700,
+    "name": "FilmFest Extravaganza - Cinematic Brilliance",
     "description": "Lights, camera, action! Filmmakers, submit your cinematic brilliance and shine in this film festival extravaganza.",
     "image": "https://cdn.pixabay.com/photo/2016/11/29/01/34/man-1866574_640.jpg",
+    "instruction": "Your instructions here",
+    "price": 17,
+    "prize": 1700,
     "type": "Film"
   },
   {
-    "title": "Gaming Quest - Level Up Challenges",
-    "attempted": 2500,
+    "name": "Gaming Quest - Level Up Challenges",
     "description": "Game on! Gamers, join the quest, face challenges, and reach new levels of excitement and thrill.",
     "image": "https://cdn.pixabay.com/photo/2016/11/29/01/34/man-1866574_640.jpg",
+    "instruction": "Your instructions here",
+    "price": 22,
+    "prize": 2200,
     "type": "Gaming"
   },
   {
-    "title": "Cooking Fusion - Culinary Magic",
-    "attempted": 1400,
+    "name": "Cooking Fusion - Culinary Magic",
     "description": "Chefs and foodies unite! Create culinary magic and share your love for cooking in this gastronomic adventure.",
     "image": "https://cdn.pixabay.com/photo/2016/11/29/01/34/man-1866574_640.jpg",
+    "instruction": "Your instructions here",
+    "price": 14,
+    "prize": 1400,
     "type": "Cooking"
   }
 ]
+

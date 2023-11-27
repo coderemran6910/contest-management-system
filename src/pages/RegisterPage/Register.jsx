@@ -28,9 +28,9 @@ const Register = () => {
       const userInfo = {
           name: data?.name,
           email: data?.email,
-          image: data?.image || user?.photoURL
+          image: data?.image || user?.photoURL,
+          role: 'user',
       }
-      console.log(userInfo);
           axiosPublic.post('/users', userInfo)
               .then(res => {
                   if (res.data.insertedId) { 
@@ -54,12 +54,14 @@ const Register = () => {
         navigate('/')
         const userInfo = {
             email: result.user?.email,
-            name: result.user?.displayName
+            name: result.user?.displayName,
+            image: result.user?.photoURL,
+            role: 'user'
         }
+        console.log(userInfo);
 
         axiosPublic.post('/users', userInfo)
-        .then(res =>{
-            console.log(res.data);
+        .then(() =>{
             navigate('/');
         })
     })

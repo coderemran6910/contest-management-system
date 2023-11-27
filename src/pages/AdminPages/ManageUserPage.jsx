@@ -1,15 +1,15 @@
-import { Link } from "react-router-dom";
 import {useQuery} from "@tanstack/react-query";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { FaUser } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 const ManageUser = () => {
 
  const axiosPublic = useAxiosPublic();
 
-  const { data: users = [], refetch } = useQuery({
-    queryKey: ["singleContest"],
+  const { data: users = [], refetch } = useQuery({ 
+    queryKey: ["users"],
     queryFn: async () => {
       try {
         const res = await axiosPublic.get(`/users`);
@@ -20,7 +20,7 @@ const ManageUser = () => {
     },
   });
 
-
+// Handle Delete role 
   const handleDelete = email => {
     Swal.fire({
         title: "Are you sure?",
@@ -48,6 +48,21 @@ const ManageUser = () => {
     });
 }
 
+// Handle Make Creator Role
+ const handleMakeCreator = email =>{
+        axiosPublic.patch(`/users/${email}`, {role: 'creator'})
+        .then(res =>{
+            console.log(res.data)
+            refetch();
+            toast.success('Make creator successfully')
+           
+        })
+        .catch(err =>{
+            console.log(err)
+        })
+    }
+
+
 
   return (
     <>
@@ -71,7 +86,7 @@ const ManageUser = () => {
           </thead>
           <tbody>
             {users?.map((user) => {
-              const {name, email, image} = user;
+              const {name, email, image, role} = user;
               console.log(user);
 
               {
@@ -102,9 +117,9 @@ const ManageUser = () => {
 
                     <td>{name}</td>
                     <td>{email}</td>
-                    <td>Make Creator</td>
+                    <td> <button onClick={()=>handleMakeCreator(email)} className={`btn btn-xs ${role === 'creator' ? 'bg-green-500 btn-sm' : 'bg-red-100'}`}>{role === 'creator' ? 'Creator' : 'make creator'} </button> </td>
                     <th>
-                      <button onClick={()=>handleDelete(email)}  className="btn btn-error btn-sm">Remove</button>
+                      <button onClick={()=>handleDelete(email)}  className="btn btn-error btn-xs">Remove</button>
                     </th>
                   </tr>
                 </>

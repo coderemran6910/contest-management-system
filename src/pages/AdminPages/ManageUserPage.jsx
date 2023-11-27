@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import {useQuery} from "@tanstack/react-query";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { FaUser } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const ManageUser = () => {
 
  const axiosPublic = useAxiosPublic();
 
-  const { data: users = [] } = useQuery({
+  const { data: users = [], refetch } = useQuery({
     queryKey: ["singleContest"],
     queryFn: async () => {
       try {
@@ -18,6 +20,33 @@ const ManageUser = () => {
     },
   });
 
+
+  const handleDelete = email => {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#e5e218",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+
+            axiosPublic.delete(`/users/${email}`)
+                .then(res => {
+                    if (res.data.deletedCount > 0) {
+                        refetch();
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                        });
+                    }
+                })
+        }
+    });
+}
 
 
   return (
@@ -59,10 +88,13 @@ const ManageUser = () => {
                     <td>
                       <div className="avatar">
                           <div className="mask mask-squircle w-12 h-12">
-                            <img
+                            {image? <img
                               src={image}
                               alt="Avatar Tailwind CSS Component"
                             />
+                          :
+                          <span > < FaUser className=" w-full h-full  "></FaUser> </span>
+                          }
                           </div>
                         </div>
                     </td>
@@ -70,9 +102,9 @@ const ManageUser = () => {
 
                     <td>{name}</td>
                     <td>{email}</td>
-                    <td>Creator</td>
+                    <td>Make Creator</td>
                     <th>
-                      <Link className="btn btn-error btn-sm">Remove</Link>
+                      <button onClick={()=>handleDelete(email)}  className="btn btn-error btn-sm">Remove</button>
                     </th>
                   </tr>
                 </>

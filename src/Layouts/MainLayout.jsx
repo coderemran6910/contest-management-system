@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import ProfieDropdown from "../components/utility/ProfieDropdown";
 import { toast } from "react-toastify";
-import { FaAllergies, FaArrowRight, FaChevronLeft, FaHome, FaListAlt } from "react-icons/fa";
+import {  FaArrowRight, FaChevronLeft, FaHome, FaListAlt } from "react-icons/fa";
 
 const MainLayout = ({ children }) => {
 

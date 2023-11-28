@@ -46,7 +46,7 @@ const MainLayout = ({ children }) => {
 
   return (
     <div className="drawer">
-      <title>Home Page </title>
+     
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col ">
         {/* Navbar */}

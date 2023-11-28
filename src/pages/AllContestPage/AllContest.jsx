@@ -10,12 +10,13 @@ const AllContest = () => {
   const [tabIndex, setTabIndex] = useState(0);
  const [allContest] = useAllContest()
  console.log(allContest);
- const Business = allContest.filter(contest => contest.type === 'Business') 
- const Medical = allContest.filter(contest => contest.type === 'Medical')
- const Article = allContest.filter(contest => contest.type === 'Article')
+ const Business = allContest.filter(contest => contest.type === 'Business Contest') 
+ const Medical = allContest.filter(contest => contest.type === 'Medical Contest')
+ const Article = allContest.filter(contest => contest.type === 'Article Writing')
  const Writing = allContest.filter(contest => contest.type === 'Writing')
  const Gaming = allContest.filter(contest => contest.type === 'Gaming')
 
+ console.log(Business.length);
 //  Business Contest, Medical, Contest, Article Writing, Gaming.
 
   return (

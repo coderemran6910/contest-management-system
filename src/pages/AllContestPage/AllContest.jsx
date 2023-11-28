@@ -1,6 +1,5 @@
 import SectionTitle from "../../components/shared/SectionTitle";
-import bg from "../../assets/allcontest.svg";
-// import bg from '../../assets/cool-background.png'
+import bg from "../../assets/cool-background.png";
 import CardAllContest from "./CardAllContest";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
@@ -20,7 +19,7 @@ const AllContest = () => {
 //  Business Contest, Medical, Contest, Article Writing, Gaming.
 
   return (
-    <div style={{ backgroundImage: `url(${bg})` }} className=" pb-20 ">
+    <div style={{ backgroundImage: `url(${bg})` }} className=" pb-20 bg-cover bg-opacity-10 ">
       <SectionTitle
         title={"All Contest"}
         subTitle={"Explore Our All Incredivle Contest"}

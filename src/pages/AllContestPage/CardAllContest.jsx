@@ -17,7 +17,7 @@ import {Link} from "react-router-dom"
 // };
 
 const Card = ({ contest }) => {
-  const { description, image, instruction, name, price, prize, attempted, _id } = contest;
+  const { description, image, instruction, name, price, prize, attempted, _id , status } = contest;
   return (
     <div
       style={{
@@ -34,15 +34,18 @@ const Card = ({ contest }) => {
         {description}
       </p>
       <div className=" text-white flex justify-between items-center mt-10">
+        <div className="flex flex-col gap-5">
         <p className="text-slate-200 group-hover:text-violet-200 relative z-10 duration-300">
-          Total Attempted:{" "}
-          <span className="text-[#993922] font-extrabold btn btn-xs">
+          Total Attempted: <span className="text-[#993922] font-extrabold btn btn-xs">
             {attempted || "0"}
           </span>
         </p>
-        {/* <button className="btn text-slate-200 bg-[#993922] group-hover:text-black relative z-10 duration-300 hover:bg-[#FBB464]">
-          View Details
-        </button> */}
+        <p className="text-slate-200 group-hover:text-violet-200 relative z-10 duration-300">
+          Status: <span className="text-[#993922] font-extrabold btn btn-xs">
+            {status}
+          </span>
+        </p>
+        </div>
 
         <Link to={`/allcontest/${_id}`} className=" rounded-full bg-[#993922]  group-hover:text-black relative z-10 duration-300 cursor-pointer ">
           <StyledButton text={"vew details"}></StyledButton>

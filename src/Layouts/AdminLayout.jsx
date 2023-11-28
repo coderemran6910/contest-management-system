@@ -30,17 +30,17 @@ const AdminLayout = () => {
               </div> */}
 
               <div className="flex flex-col items-center md:px-5">
-              <NavLink className="btn bg-black w-full mt-5 text-slate-300 font-bold hover:bg-[#2f281e]" to={'/admin'}>
+              <NavLink className="btn btn-sm border-0 bg-black w-full mt-5 text-slate-300 font-bold hover:bg-[#2f281e]" to={'/admin'}>
                   Add Contest
                 </NavLink> 
                 <NavLink
-                  className="btn bg-black w-full mt-5 text-slate-300 font-bold hover:bg-[#2f281e]"
+                  className="btn btn-sm border-0 bg-black w-full mt-5 text-slate-300 font-bold hover:bg-[#2f281e]"
                   to={`/admin/manageuser`}
                 >
                   Manage User
                 </NavLink>
                 <NavLink
-                  className="btn bg-black w-full mt-5 text-slate-300 font-bold hover:bg-[#2f281e]"
+                  className="btn btn-sm border-0 bg-black w-full mt-5 text-slate-300 font-bold hover:bg-[#2f281e]"
                   to={`/admin/managecontest`}
                 >
                  Manage Contest

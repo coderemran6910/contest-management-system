@@ -13,7 +13,12 @@ const AddContest = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    axiosPublic.post("/contests", data)
+
+    const postData = {
+      ...data,
+      status : "pending"
+    }
+    axiosPublic.post("/contests", postData)
     .then(()=>{
       toast.success("Contest added successfully")
     })

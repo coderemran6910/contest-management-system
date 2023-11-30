@@ -71,7 +71,7 @@ const Login = () => {
               <input
                 style={{ boxShadow: "9px 6px 10px 1px #000000" }}
                 type="password"
-                placeholder="User name"
+                placeholder="Password"
                 className="w-full p-3 rounded-full  bg-slate-100 text-black  shadow-xl  border-2  "
                 {...register("password", { required: true })}
               />

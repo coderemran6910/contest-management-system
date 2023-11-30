@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoutes";
 import DetailsContest from "../pages/AllContestPage/DetailsContest";
 import ManageUser from "../pages/AdminPages/ManageUserPage";
 import ManageContest from "../pages/AdminPages/ManageContest";
+import UserProfile from "../pages/AdminPages/UserProfile";
 
 const router = createBrowserRouter([
     {
@@ -50,8 +51,13 @@ const router = createBrowserRouter([
         element:<PrivateRoute> <AdminLayout></AdminLayout></PrivateRoute>,
         children:[
             {
-                path: '/admin',
-                element:<PrivateRoute> <AddContest> </AddContest></PrivateRoute>
+                index: true,
+                path: '/admin', 
+                element:<PrivateRoute> <UserProfile></UserProfile> </PrivateRoute> 
+            },
+            {
+                path: 'addcontest',
+                element: <PrivateRoute> <AddContest></AddContest> </PrivateRoute>
             },
             {
                 path: 'manageuser',

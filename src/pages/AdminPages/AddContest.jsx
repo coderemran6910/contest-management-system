@@ -32,6 +32,7 @@ const AddContest = () => {
 
   return (
     <div className=" px-10">
+      <h2 className="text-3xl font-bold text-center">Welcome  to your Admin Dashboard </h2>
       <div className="py-10">
         <SectionTitle title="Add a new Contest " ></SectionTitle>
       </div>

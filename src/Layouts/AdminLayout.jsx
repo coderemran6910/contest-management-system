@@ -1,8 +1,28 @@
 import { NavLink, Outlet } from "react-router-dom";
 import MainLayout from "./MainLayout";
 import bg from '../assets/commonbg.png'
+import { useEffect, useState } from "react";
+import useAxiosPublic from "../hooks/useAxiosPublic";
+import useAuth from "../hooks/useAuth";
+
 
 const AdminLayout = () => {
+  const {user} = useAuth()
+  const axiosPublic = useAxiosPublic();
+const [users, setUsers] = useState()
+
+
+
+
+useEffect(() => {
+  axiosPublic.get('/users')
+  .then(res => {
+    setUsers(res.data)
+  })
+
+},[axiosPublic])
+const currentUser = users?.find(u => u?.email === user?.email)
+console.log(currentUser);
 
 
   return (
@@ -30,21 +50,60 @@ const AdminLayout = () => {
               </div> */}
 
               <div className="flex flex-col items-center md:px-5">
-              <NavLink className="btn btn-sm border-0 bg-black w-full mt-5 text-slate-300 font-bold hover:bg-[#2f281e]" to={'/admin'}>
-                  Add Contest
-                </NavLink> 
-                <NavLink
-                  className="btn btn-sm border-0 bg-black w-full mt-5 text-slate-300 font-bold hover:bg-[#2f281e]"
-                  to={`/admin/manageuser`}
-                >
-                  Manage User
-                </NavLink>
-                <NavLink
-                  className="btn btn-sm border-0 bg-black w-full mt-5 text-slate-300 font-bold hover:bg-[#2f281e]"
-                  to={`/admin/managecontest`}
-                >
-                 Manage Contest
-                </NavLink>
+                {
+                  currentUser?.role === 'admin' && <>
+                   <NavLink className="btn btn-sm border-0 bg-black w-full mt-5 text-slate-300 font-bold hover:bg-[#2f281e]" to={'/admin'}>
+                   My Profile
+                 </NavLink> 
+                  
+                  <NavLink className="btn btn-sm border-0 bg-black w-full mt-5 text-slate-300 font-bold hover:bg-[#2f281e]" to={'/admin/addcontest'}>
+                   Add Contest
+                 </NavLink> 
+                 <NavLink
+                   className="btn btn-sm border-0 bg-black w-full mt-5 text-slate-300 font-bold hover:bg-[#2f281e]"
+                   to={`/admin/manageuser`}
+                 >
+                   Manage User
+                 </NavLink>
+                 <NavLink
+                   className="btn btn-sm border-0 bg-black w-full mt-5 text-slate-300 font-bold hover:bg-[#2f281e]"
+                   to={`/admin/managecontest`}
+                 >
+                  Manage Contest
+                 </NavLink>
+                 </>
+                } 
+                 {
+                  currentUser?.role === 'creator' && <>
+                   <NavLink className="btn btn-sm border-0 bg-black w-full mt-5 text-slate-300 font-bold hover:bg-[#2f281e]" to={'/admin'}>
+                   My Profile
+                 </NavLink> 
+                  
+                  <NavLink className="btn btn-sm border-0 bg-black w-full mt-5 text-slate-300 font-bold hover:bg-[#2f281e]" to={'/admin/addcontest'}>
+                   Add Contest
+                 </NavLink> 
+                 <NavLink
+                   className="btn btn-sm border-0 bg-black w-full mt-5 text-slate-300 font-bold hover:bg-[#2f281e]"
+                   to={`/admin/manageuser`}
+                 >
+                   Manage User
+                 </NavLink>
+                 <NavLink
+                   className="btn btn-sm border-0 bg-black w-full mt-5 text-slate-300 font-bold hover:bg-[#2f281e]"
+                   to={`/admin/managecontest`}
+                 >
+                  Manage Contest
+                 </NavLink>
+                 </>
+                } 
+                
+                {
+                  currentUser?.role === 'user' && <>
+                   <NavLink className="btn btn-sm border-0 bg-black w-full mt-5 text-slate-300 font-bold hover:bg-[#2f281e]" to={'/admin'}>
+                   My Profile
+                 </NavLink> 
+                  </>
+                }            
               </div>
             </div>
           </div>

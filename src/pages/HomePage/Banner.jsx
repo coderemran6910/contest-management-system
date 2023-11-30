@@ -10,7 +10,7 @@ const Banner = () => {
         autoPlay
         loop
         muted
-        className="w-full h-screen object-cover"
+        className="w-full  h-screen object-cover"
       ></video>
       <div className="absolute top-0 w-full h-full bg-black/80"></div>
       <div className="absolute top-0 w-full h-full   flex flex-col justify-center items-center text-white text-center  ">
@@ -19,10 +19,10 @@ const Banner = () => {
           animationData={animated}
           loop={true}
         />
-        <h1 className="text-5xl font-bold w-4/12 text-center">
+        <h1 className="text-5xl font-bold w-8/12 text-center">
           Unleash Your Genius at ContestHub: Where Visionaries Rise!
         </h1>
-        <p className="mt-5 text-slate-200 w-8/12">
+        <p className="mt-5 text-slate-200 w-8/12 hidden md:block">
           Dive into a World of Innovation and Recognition! ContestHub beckons as
           the dynamic hub for creatives, offering a seamless Project Contest
           Creation Platform. Fuel your creativity, engage vibrant communities,

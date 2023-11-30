@@ -10,13 +10,13 @@ const PopularSection = () => {
       style={{ backgroundImage: `url(${bg})` }}
       className=" bg-cover bg-center opacity-100   py-20"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto  ">
         <SectionTitle
           title="Popular Contest"
           subTitle="Explore Our Popular Contest"
         ></SectionTitle>
 
-        <div className="">
+        <div className=" flex flex-col justify-center ">
           {popular.map((popular, indx) => (
             <TiltCard key={indx} popular={popular}></TiltCard>
           ))}

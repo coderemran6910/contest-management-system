@@ -56,7 +56,7 @@ const TiltCard = ({popular}) => {
 
   return (
    <>
-   <div className="flex  items-center my-10">
+   <div className="flex flex-col md:flex-row w-full  items-center my-10">
    <motion.div
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -65,7 +65,7 @@ const TiltCard = ({popular}) => {
         rotateX,
         transformStyle: "preserve-3d",
       }}
-      className="relative h-96 w-96 rounded-xl bg-gradient-to-br from-[#FFA439] to-[#993922] mr-20"
+      className="relative h-96 w-96 rounded-xl  bg-gradient-to-br from-[#FFA439] to-[#993922] "
     >
       <div
         style={{
@@ -92,7 +92,7 @@ const TiltCard = ({popular}) => {
       
     </motion.div>
 
-<div className="bg-[#FBB464] w-full p-10 bg-opacity-30 rounded-lg">
+<div className="bg-[#FBB464] w-96  md:w-full p-10 bg-opacity-30 rounded-lg">
 <h3 className="text-3xl text-white font-bold ">{title}</h3>
 <p className="text-lg py-2 text-slate-300"> {description} </p>
 <div className="flex justify-between items-center">

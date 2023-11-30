@@ -23,7 +23,7 @@ const ProfieDropdown = () => {
             <img
               src={
                 user?.photoURL ||
-                "https://w7.pngwing.com/pngs/410/884/png-transparent-computer-icons-facebook-user-profile-facebook-black-silhouette-avatar-thumbnail.png"
+                "/user.png"
               }
             />
           </div>

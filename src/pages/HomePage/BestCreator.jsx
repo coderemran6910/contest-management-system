@@ -16,7 +16,7 @@ const BestCreator = () => {
   return (
     <div
       style={{ backgroundImage: `url(${bg})` }}
-      className=" bg-cover bg-center flex justify-center h-screen items-center "
+      className=" bg-cover bg-center flex   justify-center md:h-screen items-center py-5 "
     >
       <div>
         <SectionTitle

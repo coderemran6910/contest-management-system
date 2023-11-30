@@ -32,7 +32,7 @@ export default function SliderBestCreator({ bestCreator }) {
         }}
         pagination={true}
         modules={[EffectCoverflow, Pagination]}
-        className="mySwiper max-w-7xl"
+        className="mySwiper w-10/12 md:max-w-7xl"
       >
         {bestCreator.map((creator) => {
           const { contestDescription, name, image, contest_id, contestName } = creator;
@@ -45,7 +45,7 @@ export default function SliderBestCreator({ bestCreator }) {
                 src={image}
               />
 
-            <div className="flex-1 px-20">
+            <div className="flex-1 px-20 py-5">
               <h2 className="text-3xl md:text-4xl text-black font-bold uppercase mb-10">{name}</h2>
               <p className="text-lg  text-slate-800">{contestDescription}</p>
               <p className="mb-10">contest name: {contestName}</p>
